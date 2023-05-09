@@ -30,6 +30,11 @@ The output should be a file called `disable_selinux.ko`.
 
 ## Loading  
 
+**Requirements**
+
+ * Root execution on the target system
+ * The target must have `CONFIG_SECURITY_SELINUX_DEVELOP` set in the Linux kernel configuration
+
 To load the kernel module, you can try any of the following:  
 
 ```
