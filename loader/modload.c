@@ -22,78 +22,78 @@
 
 int main(int argc, char** argv)
 {
-	const char* params;
-	int fd;
-	size_t image_sz;
-	struct stat st;
-	void* image;
+    const char* params;
+    int fd;
+    size_t image_sz;
+    struct stat st;
+    void* image;
     ssize_t read_sz = 0;
     int err = 0;
 
-	if (argc < 2)
+    if (argc < 2)
     {
-		printf("Usage %s <kernel module> [args]\n", argv[0]);
-		return EXIT_FAILURE;
-	}
+        printf("Usage %s <kernel module> [args]\n", argv[0]);
+        return EXIT_FAILURE;
+    }
     
-	if (argc < 3)
+    if (argc < 3)
     {
-		params = "";
-	}
+        params = "";
+    }
     else
     {
-		params = argv[2];
-	}
+        params = argv[2];
+    }
     
-	fd = open(argv[1], O_RDONLY);
+    fd = open(argv[1], O_RDONLY);
     if (fd < 0)
     {
-		perror("open");
-		return EXIT_FAILURE;
+        perror("open");
+        return EXIT_FAILURE;
     }
     
-	err = fstat(fd, &st);
+    err = fstat(fd, &st);
     if (err)
     {
-		perror("fstat");
+        perror("fstat");
         close(fd);
-		return EXIT_FAILURE;
+        return EXIT_FAILURE;
     }
     
-	image_sz = st.st_size;
-	image = malloc(image_sz);
+    image_sz = st.st_size;
+    image = malloc(image_sz);
     if (image == NULL)
     {
-		perror("malloc");
+        perror("malloc");
         close(fd);
-		return EXIT_FAILURE;
+        return EXIT_FAILURE;
     }
     
-	read_sz = read(fd, image, image_sz);
+    read_sz = read(fd, image, image_sz);
     if (read_sz < 0)
     {
-		perror("read");
+        perror("read");
         close(fd);
         free(image);
-		return EXIT_FAILURE;
+        return EXIT_FAILURE;
     }
     else if ((size_t)read_sz != image_sz)
     {
         printf("[WARNING] Expected %lu bytes but read returned %ld\n", image_sz, read_sz);
     }
-	
+    
     if (close(fd))
     {
         perror("close");
     }
     
-	if (init_module(image, image_sz, params) != 0)
+    if (init_module(image, image_sz, params) != 0)
     {
-		perror("init_module");
+        perror("init_module");
         free(image);
-		return EXIT_FAILURE;
-	}
+        return EXIT_FAILURE;
+    }
     
-	free(image);
-	return EXIT_SUCCESS;
+    free(image);
+    return EXIT_SUCCESS;
 }
