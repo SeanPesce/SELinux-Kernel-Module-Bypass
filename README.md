@@ -9,8 +9,8 @@ More information about this project can be found in my [related blog post](https
 # Related Resources  
 
  * [Linux Kernel Module Cheat Sheet](https://github.com/cirosantilli/linux-kernel-module-cheat/) by [Ciro Santilli](https://github.com/cirosantilli)
- * [Cross-compiling Linux Kernel Modules for ARM](https://blukat.me/2017/12/cross-compile-arm-kernel-module/) by [blukat29](https://blukat.me/)
- * [Android Kernel Exploitation - Linux Privilege Escalation & SELinux](https://cloudfuzz.github.io/android-kernel-exploitation/chapters/linux-privilege-escalation.html) by [CloudFuzz](https://github.com/cloudfuzz)
+ * [Cross-compiling Linux Kernel Modules for ARM](https://blukat.me/2017/12/cross-compile-arm-kernel-module/) by [Yunjong Jeong](https://blukat.me/) (AKA blukat29)
+ * [Android Kernel Exploitation - Linux Privilege Escalation & SELinux](https://cloudfuzz.github.io/android-kernel-exploitation/chapters/linux-privilege-escalation.html) by Ashfaq Ansari of [CloudFuzz](https://github.com/cloudfuzz)
 
 ---------------------------------------------
 
