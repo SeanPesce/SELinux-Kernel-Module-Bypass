@@ -3,6 +3,7 @@
 **Author: Sean Pesce**  
 
 Tools for bypassing [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux) via [`init_module`](https://man7.org/linux/man-pages/man2/init_module.2.html).
+More information about this project can be found in my [related blog post](https://seanpesce.blogspot.com/2023/05/bypassing-selinux-with-initmodule.html).  
 
 
 # Related Resources  
